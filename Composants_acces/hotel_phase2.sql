@@ -1,15 +1,16 @@
-DROP DATABASE hotel_phase2;
+DROP DATABASE IF EXISTS hotel_phase2;
+
 CREATE DATABASE hotel_phase2; 
 USE hotel_phase2;
 
 CREATE TABLE station (
-	sta_id INT NOT NULL  PRIMARY KEY,
+	sta_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	sta_nom VARCHAR(50) NOT NULL,
 	sta_altitude INT
 );
 
 CREATE TABLE hotel (
-	hot_id 			INT  NOT NULL,
+	hot_id 			INT AUTO_INCREMENT NOT NULL,
 	hot_sta_id 		INT NOT NULL,
 	hot_nom 		VARCHAR(50) NOT NULL,
 	hot_categorie 	INT NOT NULL,
@@ -20,7 +21,7 @@ CREATE TABLE hotel (
 );
 
 CREATE TABLE chambre (
-	cha_id INT NOT NULL  ,
+	cha_id INT NOT NULL AUTO_INCREMENT ,
 	cha_hot_id INT NOT NULL,
 	cha_numero INT NOT NULL,
 	cha_capacite INT NOT NULL,
@@ -30,7 +31,7 @@ CREATE TABLE chambre (
 );
 
 CREATE TABLE client (
-	cli_id INT NOT NULL  ,
+	cli_id INT NOT NULL AUTO_INCREMENT ,
 	cli_nom VARCHAR(50),
 	cli_prenom VARCHAR(50),
 	cli_adresse VARCHAR(50),
@@ -39,7 +40,7 @@ CREATE TABLE client (
 );
 
 CREATE TABLE reservation (
-	res_id INT NOT NULL ,
+	res_id INT NOT NULL AUTO_INCREMENT,
 	res_cha_id INT NOT NULL ,
 	res_cli_id INT NOT NULL ,
 	res_date DATETIME NOT NULL,
