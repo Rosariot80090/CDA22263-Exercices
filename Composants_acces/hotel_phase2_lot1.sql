@@ -1,4 +1,4 @@
--- Active: 1679136074823@@127.0.0.1@3306@hotel_phase2
+-- Active: 1678796343157@@127.0.0.1@3306@hotel_phase2
 --Afficher la liste des hôtels. Le résultat doit faire apparaître le nom de l’hôtel et la ville
 SELECT hot_nom, hot_ville FROM hotel;
 
