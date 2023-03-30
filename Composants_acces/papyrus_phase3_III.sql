@@ -1,10 +1,11 @@
--- Active: 1679136074823@@127.0.0.1@3306@papyrus_phase3
+-- Active: 1678796343157@@127.0.0.1@3306@papyrus_phase3
 --Quelles sont les commandes du fournisseur 09120 ?
 SELECT e.numfou, e.numcom
 FROM entcom e
 WHERE numfou='9120';
 
 --Afficher le code des fournisseurs pour lesquels des commandes ont été passées.
+
 SELECT f.numfou, e.numcom
 FROM fournis f
 JOIN entcom e on e.numfou = f.numfou;
@@ -74,11 +75,14 @@ from entcom e
 join fournis f on f.numfou = e.numfou;
 
 --11. Sortir les produits des commandes ayant le mot "urgent' en observation? (Afficher le numéro de commande, le nom du fournisseur, le libellé du produit et le sous total = quantité commandée * Prix unitaire)
-SELECT e.numcom, f.nomfou, p.codart, (l.qtecde * l.priuni) as sous_total
+
+SELECT e.numcom, e.obscom, f.nomfou, p.codart, p.libart, (l.qtecde * l.priuni) as sous_total
 FROM entcom e
 JOIN ligcom l ON l.numcom = e.numcom
 JOIN produit p ON p.codart = l.codart
-join fournis f on f.numfou = e.numfou;
+JOIN fournis f ON f.numfou = e.numfou
+where e.obscom not like '%urgent%'
+;
 
 
 --12. Coder de 2 manières différentes la requête suivante : Lister le nom des fournisseurs susceptibles de livrer au moins un article
@@ -122,6 +126,11 @@ where p.codart like 'r%'
 
 
 --19. Calculer le chiffre d'affaire par fournisseur pour l'année 93 sachant que les prix indiqués sont hors taxes et que le taux de TVA est 20%.
+SELECT e.numfou, sum(l.qteliv*l.priuni) as TotalHT, sum(l.qteliv*l.priuni)*1.2 as TotalTTC 
+FROM entcom e
+JOIN ligcom l on l.numcom = e.numcom
+group by e.numfou
+;
 
 
 

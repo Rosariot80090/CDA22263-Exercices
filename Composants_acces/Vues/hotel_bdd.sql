@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS hotel;
+DROP DATABASE hotel;
 
 CREATE DATABASE hotel; 
 USE hotel;
@@ -10,7 +10,7 @@ CREATE TABLE station (
 );
 
 CREATE TABLE hotel (
-	hot_id 			INT AUTO_INCREMENT NOT NULL,
+	hot_id 			INT  AUTO_INCREMENT NOT NULL,
 	hot_sta_id 		INT NOT NULL,
 	hot_nom 		VARCHAR(50) NOT NULL,
 	hot_categorie 	INT NOT NULL,
@@ -145,4 +145,3 @@ INSERT INTO reservation (res_cha_id, res_cli_id, res_date, res_date_debut, res_d
 INSERT INTO reservation (res_cha_id, res_cli_id, res_date, res_date_debut, res_date_fin, res_prix, res_arrhes) VALUES (4, 6, '2017-01-10', '2017-07-01', '2017-07-15', 2400, 780);
 INSERT INTO reservation (res_cha_id, res_cli_id, res_date, res_date_debut, res_date_fin, res_prix, res_arrhes) VALUES (4, 6, '2017-01-10', '2017-07-01', '2017-07-15', 500, 80);
 INSERT INTO reservation (res_cha_id, res_cli_id, res_date, res_date_debut, res_date_fin, res_prix, res_arrhes) VALUES (4, 1, '2017-01-10', '2017-07-01', '2017-07-15', 40, 0);
-
