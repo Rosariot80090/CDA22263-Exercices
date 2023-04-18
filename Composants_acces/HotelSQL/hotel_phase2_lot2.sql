@@ -1,4 +1,4 @@
--- Active: 1679136074823@@127.0.0.1@3306@hotel_phase2
+-- Active: 1678796343157@@127.0.0.1@3306@hotel_phase2
 --Afficher la liste des hôtels avec leur station Le résultat doit faire apparaître le nom de la station, le nom de l’hôtel, la catégorie, la ville)
 SELECT sta_nom, hot_nom, hot_categorie, hot_ville
 FROM station sta
